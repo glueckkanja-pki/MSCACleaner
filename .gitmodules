@@ -1,0 +1,3 @@
+[submodule "GKMSCAWrapper"]
+	path = GKMSCAWrapper
+	url = git@github.com:glueckkanja-pki/GKMSCAWrapper.git

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GKMSCAWrapper", "GKMSCAWrapper\GKMSCAWrapper\GKMSCAWrapper.vcxproj", "{509D33DA-2B8C-4B9A-A5CB-954C7D110272}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSCACleaner", "MSCACleaner\MSCACleaner.csproj", "{30A18A23-B91D-4459-8896-8C7A2A2B3D31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+		Remote Debug|Any CPU = Remote Debug|Any CPU
+		Remote Debug|Mixed Platforms = Remote Debug|Mixed Platforms
+		Remote Debug|Win32 = Remote Debug|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{509D33DA-2B8C-4B9A-A5CB-954C7D110272}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{509D33DA-2B8C-4B9A-A5CB-954C7D110272}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{509D33DA-2B8C-4B9A-A5CB-954C7D110272}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{509D33DA-2B8C-4B9A-A5CB-954C7D110272}.Debug|Win32.ActiveCfg = Debug|Win32
+		{509D33DA-2B8C-4B9A-A5CB-954C7D110272}.Debug|Win32.Build.0 = Debug|Win32
+		{509D33DA-2B8C-4B9A-A5CB-954C7D110272}.Release|Any CPU.ActiveCfg = Release|Win32
+		{509D33DA-2B8C-4B9A-A5CB-954C7D110272}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{509D33DA-2B8C-4B9A-A5CB-954C7D110272}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{509D33DA-2B8C-4B9A-A5CB-954C7D110272}.Release|Win32.ActiveCfg = Release|Win32
+		{509D33DA-2B8C-4B9A-A5CB-954C7D110272}.Release|Win32.Build.0 = Release|Win32
+		{509D33DA-2B8C-4B9A-A5CB-954C7D110272}.Remote Debug|Any CPU.ActiveCfg = Remote Debug|Win32
+		{509D33DA-2B8C-4B9A-A5CB-954C7D110272}.Remote Debug|Mixed Platforms.ActiveCfg = Remote Debug|Win32
+		{509D33DA-2B8C-4B9A-A5CB-954C7D110272}.Remote Debug|Mixed Platforms.Build.0 = Remote Debug|Win32
+		{509D33DA-2B8C-4B9A-A5CB-954C7D110272}.Remote Debug|Win32.ActiveCfg = Remote Debug|Win32
+		{509D33DA-2B8C-4B9A-A5CB-954C7D110272}.Remote Debug|Win32.Build.0 = Remote Debug|Win32
+		{30A18A23-B91D-4459-8896-8C7A2A2B3D31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30A18A23-B91D-4459-8896-8C7A2A2B3D31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30A18A23-B91D-4459-8896-8C7A2A2B3D31}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{30A18A23-B91D-4459-8896-8C7A2A2B3D31}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{30A18A23-B91D-4459-8896-8C7A2A2B3D31}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{30A18A23-B91D-4459-8896-8C7A2A2B3D31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30A18A23-B91D-4459-8896-8C7A2A2B3D31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30A18A23-B91D-4459-8896-8C7A2A2B3D31}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{30A18A23-B91D-4459-8896-8C7A2A2B3D31}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{30A18A23-B91D-4459-8896-8C7A2A2B3D31}.Release|Win32.ActiveCfg = Release|Any CPU
+		{30A18A23-B91D-4459-8896-8C7A2A2B3D31}.Remote Debug|Any CPU.ActiveCfg = Remote Debug|Any CPU
+		{30A18A23-B91D-4459-8896-8C7A2A2B3D31}.Remote Debug|Any CPU.Build.0 = Remote Debug|Any CPU
+		{30A18A23-B91D-4459-8896-8C7A2A2B3D31}.Remote Debug|Mixed Platforms.ActiveCfg = Remote Debug|Any CPU
+		{30A18A23-B91D-4459-8896-8C7A2A2B3D31}.Remote Debug|Mixed Platforms.Build.0 = Remote Debug|Any CPU
+		{30A18A23-B91D-4459-8896-8C7A2A2B3D31}.Remote Debug|Win32.ActiveCfg = Remote Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
