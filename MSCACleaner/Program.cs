@@ -100,13 +100,13 @@ namespace GK.CACleaner
             LogManager.GetLogger("GK.CACleaner.Console.printUsage").Error("Command executed with invalid parameters");
 
             Console.WriteLine();
-            Console.WriteLine("Copyright (c) 2013 Glueck & Kanja Consulting AG");
+            Console.WriteLine("Copyright (c) 2017 Glueck & Kanja Consulting AG");
             Console.WriteLine();
             Console.WriteLine("Error: " + errormessage);
             Console.WriteLine();
-            Console.WriteLine("USAGE: GKCACleaner.exe -COMMAND CONNECTIONSTRING");
-            Console.WriteLine("USAGE: GKCACleaner.exe -repairRevocation REQUESTID CONNECTIONSTRING");
-            Console.WriteLine("USAGE: GKCACleaner.exe -repairAllRevocations[Dry] ENDDATE CONNECTIONSTRING");
+            Console.WriteLine("USAGE: MSCACleaner.exe -COMMAND CONNECTIONSTRING");
+            Console.WriteLine("USAGE: MSCACleaner.exe -repairRevocation REQUESTID CONNECTIONSTRING");
+            Console.WriteLine("USAGE: MSCACleaner.exe -repairAllRevocations[Dry] ENDDATE CONNECTIONSTRING");
             Console.WriteLine();
             Console.WriteLine("COMMAND list:");
             Console.WriteLine("    -listColumns        Prints all columns available in the MS CA Database");
@@ -143,7 +143,7 @@ namespace GK.CACleaner
             Console.WriteLine("                        database, but only log what it would do."); 
             Console.WriteLine();
             Console.WriteLine("CONNECTIONSTRING specifies the Microsoft Certificate Services Server to connect");
-            Console.WriteLine("                 to. Use the syntax COMPUTERNAME/CANAME");           
+            Console.WriteLine("                 to. Use the syntax COMPUTERNAME\\CANAME");           
             Console.WriteLine();           
         }
 

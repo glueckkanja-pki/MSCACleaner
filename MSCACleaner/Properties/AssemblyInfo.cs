@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Glück & Kanja Consulting AG")]
 [assembly: AssemblyProduct("GK MS CA Cleaner")]
-[assembly: AssemblyCopyright("Copyright © 2013 Glück & Kanja Consulting AG")]
+[assembly: AssemblyCopyright("Copyright © 2017 Glück & Kanja Consulting AG")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
