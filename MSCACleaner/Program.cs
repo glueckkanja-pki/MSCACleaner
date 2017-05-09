@@ -5,6 +5,7 @@ using System.Text;
 using GK.MSCAWrapper;
 using System.Data;
 using log4net;
+using System.Runtime.InteropServices;
 
 // configure log4net with app.config
 [assembly: log4net.Config.XmlConfigurator]
@@ -42,57 +43,64 @@ namespace GK.CACleaner
                 return;
             }
 
-            string strMsCAConnectionstring = args.Last();
-            CertificateServices msca = new CertificateServices(strMsCAConnectionstring);
-
-            switch(order)
+            try
             {
-                case Command.cleanDuplicates:
-                case Command.cleanDuplicatesDry:
-                    cleanDuplicates(msca, Command.cleanDuplicates == order);
-                    break;
-                case Command.listColumns:
-                    ILog log = LogManager.GetLogger("GK.CACleaner.Console.listColumns");
-                    log.Info("Listing columns...");
-                    foreach (CertColumn column in msca.columns)
-                        log.Info("Column: " + column.name);
-                    log.Info("All columns listed");
-                    break;
-                case Command.repairRevocation:
-                    if (args.Length != 3)
-                    {
-                        printUsage("repairRevocation expects exactly three parameters, but you gave " + args.Length + " parameters.");
-                        return;
-                    }
-                    int iRequestID = int.Parse(args[1]);
-                    repairRevocation(msca, iRequestID);
-                    break;
-                case Command.repairAllRevocations:
-                case Command.repairAllRevocationsDry: 
-                if (args.Length != 3)
-                    {
-                        printUsage("repairAllRevocations expects exactly three parameters, but you gave " + args.Length + " parameters.");
-                        return;
-                    }
-                    DateTime datEnd = DateTime.Parse(args[1]);
-                    repairAllRevocations(msca, datEnd, Command.repairAllRevocations == order);
-                    break;
-                case Command.repairIssuedCerts:
-                case Command.repairIssuedCertsDry:
-                    if (args.Length != 3)
-                    {
-                        printUsage("repairIssuedCerts expects exactly three parameters, but you gave " + args.Length + " parameters.");
-                        return;
-                    }
-                    DateTime datIssuedEnd = DateTime.Parse(args[1]);
-                    repairAllIssuedCerts(msca, datIssuedEnd, Command.repairIssuedCerts == order);
-                    break;
-                default:
-                    throw new NotImplementedException("The command " + order + " is not yet implemented.");
+                string strMsCAConnectionstring = args.Last();
+                CertificateServices msca = new CertificateServices(strMsCAConnectionstring);
+
+                switch (order)
+                {
+                    case Command.cleanDuplicates:
+                    case Command.cleanDuplicatesDry:
+                        cleanDuplicates(msca, Command.cleanDuplicates == order);
+                        break;
+                    case Command.listColumns:
+                        ILog log = LogManager.GetLogger("GK.CACleaner.Console.listColumns");
+                        log.Info("Listing columns...");
+                        foreach (CertColumn column in msca.columns)
+                            log.Info("Column: " + column.name);
+                        log.Info("All columns listed");
+                        break;
+                    case Command.repairRevocation:
+                        if (args.Length != 3)
+                        {
+                            printUsage("repairRevocation expects exactly three parameters, but you gave " + args.Length + " parameters.");
+                            return;
+                        }
+                        int iRequestID = int.Parse(args[1]);
+                        repairRevocation(msca, iRequestID);
+                        break;
+                    case Command.repairAllRevocations:
+                    case Command.repairAllRevocationsDry:
+                        if (args.Length != 3)
+                        {
+                            printUsage("repairAllRevocations expects exactly three parameters, but you gave " + args.Length + " parameters.");
+                            return;
+                        }
+                        DateTime datEnd = DateTime.Parse(args[1]);
+                        repairAllRevocations(msca, datEnd, Command.repairAllRevocations == order);
+                        break;
+                    case Command.repairIssuedCerts:
+                    case Command.repairIssuedCertsDry:
+                        if (args.Length != 3)
+                        {
+                            printUsage("repairIssuedCerts expects exactly three parameters, but you gave " + args.Length + " parameters.");
+                            return;
+                        }
+                        DateTime datIssuedEnd = DateTime.Parse(args[1]);
+                        repairAllIssuedCerts(msca, datIssuedEnd, Command.repairIssuedCerts == order);
+                        break;
+                    default:
+                        throw new NotImplementedException("The command " + order + " is not yet implemented.");
+                }
+            }
+            catch (COMException cEx)
+            {
+                LogManager.GetLogger("GK.CACleaner.Console").Fatal("COM Exception while executing command.", cEx);
+                throw;
             }
 
             LogManager.GetLogger("GK.CACleaner.Console").Info("Program executed successfully");
-            return; // successful
         }
 
         static void printUsage(string errormessage)
