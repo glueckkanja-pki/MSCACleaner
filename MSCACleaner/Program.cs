@@ -14,7 +14,7 @@ namespace GK.CACleaner
 {
     static class Program
     {
-        enum Command { listColumns, cleanDuplicates, cleanDuplicatesDry, repairRevocation, repairAllRevocations, repairAllRevocationsDry, repairIssuedCerts, repairIssuedCertsDry };
+        enum Command { listColumns, cleanDuplicates, cleanDuplicatesDry, repairRevocation, repairAllRevocations, repairAllRevocationsDry, repairIssuedCerts, repairIssuedCertsDry, listCertTemplates };
 
         /// <summary>
         /// Main entry point for the GK.CACleaner application. Searches for duplicate certificates
@@ -89,6 +89,9 @@ namespace GK.CACleaner
                         }
                         DateTime datIssuedEnd = DateTime.Parse(args[1]);
                         repairAllIssuedCerts(msca, datIssuedEnd, Command.repairIssuedCerts == order);
+                        break;
+                    case Command.listCertTemplates:
+                        listAllADCertificateTemplates();
                         break;
                     default:
                         throw new NotImplementedException("The command " + order + " is not yet implemented.");
@@ -510,6 +513,24 @@ namespace GK.CACleaner
 
                 logIssuanceWorker.Debug("Certificate was reimported into database");
             }
+        }
+
+        static void listAllADCertificateTemplates()
+        {
+            ILog log = LogManager.GetLogger("GK.CACleaner.Console.CertificateTemplates");
+            log.Info("Starting to list certificate templates available in AD (this feature has preview status)");
+
+            CertificateTemplate[] userTemplates = CertificateTemplate.RetrieveAllUserCertificateTemplates();
+
+            foreach (CertificateTemplate ct in userTemplates)
+                log.Info("Certificate Template \"" + ct.TemplateName + "\" found with OID \"" + ct.TemplateOID + "\" (type " + ct.TemplateType + ")");
+
+            CertificateTemplate[] machineTemplates = CertificateTemplate.RetrieveAllMachineCertificateTemplates();
+
+            foreach (CertificateTemplate ct in machineTemplates)
+                log.Info("Certificate Template \"" + ct.TemplateName + "\" found with OID \"" + ct.TemplateOID + "\" (type " + ct.TemplateType + ")");
+
+            log.Info("Finished listing certificate templates available in AD");
         }
     }
 }
