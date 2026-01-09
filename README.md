@@ -1,10 +1,11 @@
+> [!IMPORTANT]  
+> This project is archived and is not maintained any longer.
+>
+> The code probably still works (AD CS hasn't changed a lot over the course of the years), but won't receive any new updates or support. Consider moving to a modern PKI like [SCEPman](https://www.scepman.com) if you are still using AD CS.
+
 # MSCACleaner
 
 Command line tool that checks Microsoft AD Certificate Services for duplicate certificates and revokes older duplicates
-
-## Support
-
-Please open an issue if you have problems using the tool MSCACleaner or think you have found a bug. Professional support, including tool setup and general PKI consulting, is available from [Glück & Kanja](https://www.glueckkanja.com/).
 
 ## Licenses
 
